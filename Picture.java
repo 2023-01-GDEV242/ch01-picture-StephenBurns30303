@@ -4,10 +4,14 @@
  * can be changed. You can set it to black-and-white display and back to
  * colors (only after it's been drawn, of course).
  *
+ *
+ *This picture is a combination between an abstract art piece and some company
+ *logo you tend to see in scifi games.
+ *
  * This class was written as an early example for teaching Java with BlueJ.
  * 
- * @author  Michael Kšlling and David J. Barnes
- * @version 2016.02.29
+ * @author  Stephen M. Burns
+ * @version 2023.30.23
  */
 public class Picture
 {
@@ -19,7 +23,8 @@ public class Picture
     private Triangle ship;
     private Square beam1;
     private Square beam2;
-
+    private Circle sun2;
+    private Person hidden;
     /**
      * Constructor for objects of class Picture
      */
@@ -31,7 +36,9 @@ public class Picture
         sun = new Circle();
         ship= new Triangle();
         beam1=new Square();
-        beam2=new Square();
+        beam2 =new Square();
+        sun2 = new Circle();
+        hidden= new Person();
         drawn = false;
     }
 
@@ -46,10 +53,16 @@ public class Picture
             ship.moveVertical(60);
             ship.makeVisible();
             
+            hidden.changeSize(20,20);
+            hidden.changeColor("white");
+            hidden.moveVertical(60);
+            hidden.moveHorizontal(30);
+            hidden.makeVisible();
+            
             beam1.changeSize(60);
             beam2.changeSize(60);
-            beam1.moveVertical(60);
-            beam2.moveVertical(70);
+            beam1.moveVertical(70);
+            beam2.moveVertical(80);
             beam1.moveHorizontal(20);
             beam2.moveHorizontal(40);
             beam1.changeColor("yellow");
@@ -77,6 +90,12 @@ public class Picture
             sun.moveVertical(-40);
             sun.changeSize(80);
             sun.makeVisible();
+            
+            sun2.changeColor("black");
+            sun2.moveHorizontal(100);
+            sun2.moveVertical(40);
+            sun2.changeSize(60);
+            sun2.makeVisible();
             drawn = true;
         }
     }
@@ -90,7 +109,11 @@ public class Picture
         window.changeColor("white");
         roof.changeColor("black");
         sun.changeColor("black");
+        sun.changeColor("white");
         ship.changeColor("white");
+        beam1.changeColor("white");
+        beam2.changeColor("white");
+        hidden.changeColor("black");
     }
 
     /**
@@ -102,5 +125,10 @@ public class Picture
         window.changeColor("black");
         roof.changeColor("green");
         sun.changeColor("yellow");
+        sun2.changeColor("black");
+        ship.changeColor("black");
+        beam1.changeColor("yellow");
+        beam2.changeColor("yellow");
+        hidden.changeColor("white");
     }
 }
